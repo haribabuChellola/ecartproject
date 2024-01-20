@@ -11,6 +11,7 @@ import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import SingleProduct from "./SingleProduct";
 import Button from "./Button";
 import Category from "./Category";
+import { cyan, pink } from "@mui/material/colors";
 
 function Home() {
   const [productsData, setProductsData] = useState([]);
@@ -147,19 +148,19 @@ function Home() {
               heading="Select Your order"
               paragraph="It is a long established fact that a reader will be distracted."
             >
-              <ShoppingBagIcon sx={{ fontSize: 40 }} />
+              <ShoppingBagIcon sx={{ fontSize: 40, color: cyan[400] }} />
             </HowItWorksDetails>
             <HowItWorksDetails
               heading="Preparing your cart items"
               paragraph="It is a long established fact that a reader will be distracted."
             >
-              <CategoryIcon sx={{ fontSize: 40 }} />
+              <CategoryIcon sx={{ fontSize: 40, color: pink[400] }} />
             </HowItWorksDetails>
             <HowItWorksDetails
               heading="Delivery To Your Home"
               paragraph="It is a long established fact that a reader will be distracted."
             >
-              <LocalShippingIcon sx={{ fontSize: 40 }} />
+              <LocalShippingIcon sx={{ fontSize: 40, color: cyan[400] }} />
             </HowItWorksDetails>
           </div>
           <div

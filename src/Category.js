@@ -21,7 +21,9 @@ function Category({ categoryName, id, imgsrc }) {
           className="absolute bg-gradient-to-r from-cyan-600  w-full -z-10 h-full"
         ></p>
         <div className="flex flex-col justify-center items-center space-y-2">
-          <h1 className="text-white text-start pl-4 text-lg">{categoryName}</h1>
+          <h1 className="text-white text-center pl-4 text-lg uppercase tracking-wide">
+            {categoryName}
+          </h1>
         </div>
       </div>
     </div>

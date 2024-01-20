@@ -56,7 +56,7 @@ function SingleProduct(e) {
         ) : (
           <button
             onClick={() => navigate("/cart")}
-            className="text-center bg-gradient-to-r from-pink-300 mx-auto block max-w-[150px]  p-2 uppercase mt-4 hover:cursor-pointer shadow-btn border-black border-2"
+            className="text-center bg-gradient-to-r from-pink-300 mx-auto block max-w-[150px]  p-2 px-6 uppercase mt-4 hover:cursor-pointer shadow-btn border-black border-2"
           >
             view cart
           </button>

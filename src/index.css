@@ -61,3 +61,13 @@
   background-color: pink;
   box-shadow: 2px 2px 8px #dd2b48;
 }
+
+.shadow-btn {
+  border: 2px solid black;
+  box-shadow: 4px 4px 8px gray, -4px -4px 8px gray;
+  color: black;
+}
+.shadow-btn:active {
+  transform: scale(0.97);
+  box-shadow: 2px 2px 4px gray, -2px -2px 4px gray;
+}
