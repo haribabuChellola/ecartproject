@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 import { useSearchParams } from "react-router-dom";

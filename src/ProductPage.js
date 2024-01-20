@@ -116,11 +116,11 @@ function ProductPage() {
             </button>
           </div>
 
-          <div className="flex flex-col  md:justify-center md:ml-6 md:space-y-6 space-y-4 ">
+          <div className="flex flex-col  md:justify-center md:ml-6  space-y-6 ">
             <p className="text-3xl md:text-4xl md:font-bold uppercase">
               {element?.title}
             </p>
-            <p className=" font-medium mt-4">
+            <p className=" font-medium mt-4 text-xl">
               {parseInt(
                 element?.price *
                   75 *
@@ -128,9 +128,9 @@ function ProductPage() {
               )}{" "}
               &#8377;{" "}
               {element?.discountPercentage && (
-                <span className=" line-through decoration-red-500 decoration-2 border rounded-md border-black ml-3 p-1 px-2 bg-gradient-to-l from-slate-400">
+                <sup className=" line-through text-base text-gray-400">
                   {parseInt(element?.price * 75)} &#8377;
-                </span>
+                </sup>
               )}
             </p>
 
@@ -156,8 +156,8 @@ function ProductPage() {
             )}
             <p className="hidden  md:block">{element?.description}</p>
 
-            <p className="">
-              <span className="bg-cyan-300 p-1 px-2  uppercase rounded-lg">
+            <p>
+              <span className="bg-cyan-300 p-1 px-2  uppercase rounded-lg ">
                 category
               </span>{" "}
               :{"   "}
