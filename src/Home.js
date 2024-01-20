@@ -89,9 +89,11 @@ function Home() {
               Start your daily shopping with E Cart.
             </p>
 
-            <Button data="Order Now" maxWidth="200px">
-              <ArrowForwardOutlinedIcon goto="#products" />
-            </Button>
+            <a href="#products" className="z-[9]">
+              <Button data="Order Now" maxWidth="200px">
+                <ArrowForwardOutlinedIcon />
+              </Button>
+            </a>
           </div>
 
           <h1 className="mt-8 text-2xl uppercase pl-2">Shop by Category</h1>
@@ -189,9 +191,11 @@ function Home() {
               Fast, Free Shipping, Contactless Delivery.
             </h1>
             <p className="text-white z-10">Try it now, risk free!</p>
-            <Button data="Shop Now" maxWidth="200px" goto="#products">
-              <ArrowForwardOutlinedIcon />
-            </Button>
+            <a href="#products" className="z-[9]">
+              <Button data="Shop Now" maxWidth="200px">
+                <ArrowForwardOutlinedIcon />
+              </Button>
+            </a>
           </div>
         </div>
       )}
