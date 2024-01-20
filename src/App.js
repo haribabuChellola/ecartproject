@@ -6,6 +6,7 @@ import Cart from "./Cart";
 import Navbar from "./Navbar";
 import Categories from "./Categories";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import Error from "./Error";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="productpage/:id" element={<ProductPage />} />
           <Route path="cart" element={<Cart />} />
           <Route path="categories/:category" element={<Categories />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
       <footer className="h-[66px] flex flex-col md:flex-row items-center bg-cyan-400 justify-between p-2 fixed bottom-0 w-full z-[10] md:h-14 md:px-4 lg:px-16 xl:px-24 ">
