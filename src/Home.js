@@ -28,7 +28,6 @@ function Home() {
         const { data } = await axios.get("https://dummyjson.com/products/");
         setProductsData(data.products);
         setIsLoading(false);
-        console.log(data);
       } catch (error) {
         console.log(error.response);
       }
@@ -146,7 +145,7 @@ function Home() {
             return e.title.toLowerCase().includes(inputData);
           })
           .map((e) => {
-            return <SingleProduct {...e} />;
+            return <SingleProduct {...e} key={e.id} />;
           })}
       </div>
       <h1 className="font-semibold text-xl text-pink-600">

@@ -19,7 +19,7 @@ function App() {
           <Route path="categories/:category" element={<Categories />} />
         </Routes>
       </div>
-      <footer className="h-16 flex flex-col md:flex-row items-center bg-cyan-400 justify-between p-2 fixed bottom-0 w-full z-[10] md:h-14 md:px-4 lg:px-16 xl:px-24">
+      <footer className="h-[66px] flex flex-col md:flex-row items-center bg-cyan-400 justify-between p-2 fixed bottom-0 w-full z-[10] md:h-14 md:px-4 lg:px-16 xl:px-24 ">
         <h1 className="bg-cyan-400 text-center  tracking-wider capitalize">
           Copyright &copy; 2024. All rights are reserved
         </h1>
@@ -28,6 +28,8 @@ function App() {
           <a
             href="https://github.com/haribabuChellola/ecartproject"
             className="ml-4"
+            target="_blank"
+            rel="noreferrer"
           >
             <GitHubIcon />
           </a>
