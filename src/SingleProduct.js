@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "./cartSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function SingleProduct(e) {
   const { cartItems } = useSelector((store) => store.cart);
@@ -47,12 +49,17 @@ function SingleProduct(e) {
         {cartItems.findIndex((ele) => {
           return e.id === ele.id;
         }) === -1 ? (
-          <button
-            onClick={() => dispatch(addToCart({ ...e, count: 1 }))}
-            className="text-center bg-gradient-to-r from-cyan-500 mx-auto block max-w-[150px]  p-2 uppercase mt-4 hover:cursor-pointer shadow-btn border-black border-2"
-          >
-            add to cart
-          </button>
+          <div>
+            <button
+              onClick={() => {
+                toast.success(`${e.title} added to cart`);
+                dispatch(addToCart({ ...e, count: 1 }));
+              }}
+              className="text-center bg-gradient-to-r from-cyan-500 mx-auto block max-w-[150px]  p-2 uppercase mt-4 hover:cursor-pointer shadow-btn border-black border-2"
+            >
+              add to cart
+            </button>
+          </div>
         ) : (
           <button
             onClick={() => navigate("/cart")}

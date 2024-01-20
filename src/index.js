@@ -5,12 +5,12 @@ import { Provider } from "react-redux";
 import App from "./App";
 import store from "./Store";
 import "./index.css";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <App />
+    <ToastContainer position="top-center" autoClose={3000} />
+  </Provider>
 );

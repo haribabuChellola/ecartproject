@@ -7,6 +7,9 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { red } from "@mui/material/colors";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { toast } from "react-toastify";
 
 function Cart() {
   const { cartItems } = useSelector((store) => store.cart);
@@ -30,7 +33,11 @@ function Cart() {
                 </h1>
                 <span
                   className="hover:border-2 hover:border-red-400  hover:rounded-full  hover:cursor-pointer"
-                  onClick={() => dispatch(remove(e.id))}
+                  onClick={() => {
+                    toast.error(`${e.title} removed from cart`);
+                    dispatch(remove(e.id));
+                  }}
+                  title="Remove Item"
                 >
                   <CloseIcon sx={{ color: red[400], fontSize: "40px" }} />
                 </span>
@@ -77,6 +84,7 @@ function Cart() {
                   className="border-2 border-red-400 p-2 ml-2 rounded-full hover:bg-red-300 hover:border-black"
                   onClick={() => {
                     if (e.count === 1) {
+                      toast.error(`${e.title} removed from cart`);
                       dispatch(remove(e.id));
                       return;
                     }
@@ -97,7 +105,9 @@ function Cart() {
               dispatch(clear());
             }}
           >
-            <Button data="Clear Cart" />
+            <Button data="Clear Cart">
+              <DeleteIcon />
+            </Button>
           </div>
         )}
         {cartItems.length > 0 ? (
@@ -122,9 +132,24 @@ function Cart() {
               Please Add Items to Show Cart Items....
             </h1>
             <div onClick={() => navigate("/")}>
-              <Button data="Go Home" />
+              <Button data="Go Home">
+                <HomeIcon />
+              </Button>
             </div>
           </div>
+        )}
+      </div>
+      <div className="flex justify-center mt-8">
+        {cartItems.length > 0 && (
+          <button
+            className="uppercase border-2 bg-green-400 hover:bg-green-200 hover:cursor-pointer p-4 hover:border hover:border-black font-semibold"
+            onClick={() => {
+              toast.success("Order Has Been Placed");
+              dispatch(clear());
+            }}
+          >
+            Place Order
+          </button>
         )}
       </div>
     </div>

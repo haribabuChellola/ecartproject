@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import SingleProduct from "./SingleProduct";
 import Button from "./Button";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Categories() {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,20 +31,32 @@ function Categories() {
   }, [category]);
 
   if (isLoading) {
-    return <h1>loading...</h1>;
+    return (
+      <div className="w-full flex justify-center h-[60vh] items-center">
+        <ClipLoader
+          color={"cyan"}
+          size={100}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
   }
 
   return (
     <div>
       <span onClick={() => navigate(-1)}>
-        <Button data={"Go Back"} />
+        <Button>
+          <KeyboardBackspaceIcon /> Go Back
+        </Button>
       </span>
       <div className="flex justify-center ">
         <h1 className="font-bold text-center text-3xl mb-4 uppercase text-cyan-300 border-2 p-2 border-pink-400  mt-4 rounded-lg">
           {category}
         </h1>
       </div>
-      <div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2  lg:grid-cols-3 xl:grid-cols-4">
         {productsData.map((e) => {
           return <SingleProduct {...e} />;
         })}

@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useReducer, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+
+import { useSearchParams } from "react-router-dom";
 import HowItWorksDetails from "./HowItWorksDetails";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -48,7 +49,16 @@ function Home() {
   };
 
   if (isLoading) {
-    return <h1>loading...</h1>;
+    return (
+      <div className="w-full flex justify-center h-[60vh] items-center">
+        <ClipLoader
+          color={"cyan"}
+          size={100}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
   }
 
   return (
@@ -58,7 +68,7 @@ function Home() {
         onChange={handleChange}
         value={inputData}
         className="border-2 border-cyan-400 placeholder-shown:p-2 focus:p-2 outline-0 focus:outline-dashed mb-4 w-full"
-        placeholder="Search for products here"
+        placeholder="Type here to search..."
         ref={refContainer}
       />
 
@@ -77,9 +87,12 @@ function Home() {
               Stay Home, & Get Your Daily Need's
             </h1>
             <p className="text-white z-10">
-              Start your daily shopping with Jamcart.
+              Start your daily shopping with E Cart.
             </p>
-            <Button data="Order Now" maxWidth="200px"></Button>
+
+            <Button data="Order Now" maxWidth="200px">
+              <ArrowForwardOutlinedIcon goto="#products" />
+            </Button>
           </div>
 
           <h1 className="mt-8 text-2xl uppercase pl-2">Shop by Category</h1>
@@ -123,10 +136,11 @@ function Home() {
               />
             </div>
           </div>
+          <span id="products"></span>
           <h1 className="my-8 text-2xl uppercase pl-2">All Products</h1>
         </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2  lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2  lg:grid-cols-3 xl:grid-cols-3">
         {productsData
           .filter((e) => {
             return e.title.toLowerCase().includes(inputData);
@@ -135,7 +149,7 @@ function Home() {
             return <SingleProduct {...e} />;
           })}
       </div>
-      <h1>
+      <h1 className="font-semibold text-xl text-pink-600">
         {productsData.filter((e) => {
           return e.title.toLowerCase().includes(inputData);
         }).length === 0 &&
@@ -176,7 +190,7 @@ function Home() {
               Fast, Free Shipping, Contactless Delivery.
             </h1>
             <p className="text-white z-10">Try it now, risk free!</p>
-            <Button data="Shop Now" maxWidth="200px">
+            <Button data="Shop Now" maxWidth="200px" goto="#products">
               <ArrowForwardOutlinedIcon />
             </Button>
           </div>
